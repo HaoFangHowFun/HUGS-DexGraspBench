@@ -178,12 +178,8 @@ def _load_learning_metadata(scene_path, source_family, metadata_group="both_full
         "left_hand_joint_names": [name for name in joint_names if name.startswith("lh_")],
     }
 
-    if len(metadata["right_hand_joint_names"]) == 0:
-        raise ValueError(f"No right hand joints found in {metadata_path}.")
-    if len(metadata["left_hand_joint_names"]) == 0:
-        raise ValueError(f"No left hand joints found in {metadata_path}.")
-    if len(metadata["right_arm_joint_names"]) == 0 or len(metadata["left_arm_joint_names"]) == 0:
-        raise ValueError(f"No dual-arm joints found in {metadata_path}.")
+    if not metadata["right_hand_joint_names"] and not metadata["left_hand_joint_names"]:
+        raise ValueError(f"No hand joints found in {metadata_path}.")
 
     LEARNING_METADATA_CACHE[cache_key] = metadata
     return metadata
@@ -197,7 +193,8 @@ def _split_learning_robot_qpos(stage_qpos, metadata):
         metadata: Learning metadata dict containing joint-name partitions.
 
     Returns:
-        Tuple `(right_pose, right_joint, left_pose, left_joint)`.
+        Tuple `(right_pose, right_joint, left_pose, left_joint)`. A side absent
+        from metadata returns `(None, None)`; its stored slot is not kinematics.
     """
     stage_qpos = np.asarray(stage_qpos, dtype=np.float32).reshape(-1)
     if stage_qpos.shape[0] < 14:
@@ -205,17 +202,24 @@ def _split_learning_robot_qpos(stage_qpos, metadata):
 
     right_joint_num = len(metadata["right_hand_joint_names"])
     left_joint_num = len(metadata["left_hand_joint_names"])
-    expected_dim = 14 + right_joint_num + left_joint_num
+    # DexLearn's robot output always stores two hand slots, including for
+    # single-hand training (robot_multidex supplies a fixed inactive hand).
+    # The inactive slot has the same width as the active hand, not zero width.
+    right_slot_num = right_joint_num or left_joint_num
+    left_slot_num = left_joint_num or right_joint_num
+    expected_dim = 14 + right_slot_num + left_slot_num
     if stage_qpos.shape[0] != expected_dim:
         raise ValueError(
             f"Unexpected qpos size {stage_qpos.shape[0]} for metadata={metadata['metadata_path']}. "
-            f"Expected {expected_dim} (14 + {right_joint_num} + {left_joint_num})."
+            f"Expected {expected_dim} (14 + {right_slot_num} + {left_slot_num})."
         )
+    if not np.isfinite(stage_qpos).all():
+        raise ValueError("Learning qpos contains NaN or Inf.")
 
-    right_pose = stage_qpos[:7]
-    right_joint = stage_qpos[7 : 7 + right_joint_num]
-    left_pose = stage_qpos[7 + right_joint_num : 14 + right_joint_num]
-    left_joint = stage_qpos[14 + right_joint_num :]
+    right_pose = stage_qpos[:7] if right_joint_num else None
+    right_joint = stage_qpos[7 : 7 + right_slot_num] if right_joint_num else None
+    left_pose = stage_qpos[7 + right_slot_num : 14 + right_slot_num] if left_joint_num else None
+    left_joint = stage_qpos[14 + right_slot_num :] if left_joint_num else None
     return right_pose, right_joint, left_pose, left_joint
 
 
@@ -265,6 +269,13 @@ def _get_learning_ik_solver(configs, metadata, source_family):
     """
     import pytorch_kinematics as pk
     from mr_utils.robot.pk_helper import PytorchKinematicsHelper
+
+    for side in ("right", "left"):
+        for part in ("hand", "arm"):
+            if not metadata[f"{side}_{part}_joint_names"]:
+                raise ValueError(
+                    f"Learning both-hand conversion requires {side} {part} joints in {metadata['metadata_path']}."
+                )
 
     if hasattr(configs.hand, "wrist_body_names") and configs.hand.wrist_body_names is not None:
         wrist_body_names = list(configs.hand.wrist_body_names)
@@ -461,6 +472,8 @@ def _convert_learning_stage_single(stage_qpos, metadata):
     Returns:
         Concatenated right wrist pose and right-hand joints.
     """
+    if not metadata["right_hand_joint_names"]:
+        raise ValueError(f"Learning right-hand conversion requires right hand joints in {metadata['metadata_path']}.")
     right_pose, right_joint, _, _ = _split_learning_robot_qpos(stage_qpos, metadata)
     return np.concatenate([right_pose, right_joint], axis=0).astype(np.float32)
 
