@@ -1,0 +1,39 @@
+# Simulation-only validation settings; gains are not hardware calibration.
+asset_root: ../HUGS-Sharpa-Assets
+position_kp: 2.0
+position_kv: 0.05
+timestep: 0.004
+# Strengthen the soft joint-limit constraint to match the 4 ms simulation step.
+# Joint ranges and URDF zero remain unchanged; time constant is 2 * timestep.
+joint_limit_solref: [0.008, 1.0]
+joint_limit_solimp: [0.99, 0.999, 0.0001, 0.5, 2.0]
+# Numerical rotor inertia, 1/20 of Shadow's 0.0002; not a measured hardware value.
+joint_armature: 0.00001
+# Initial qpos and position-controller targets use the same values (radians).
+# Unlisted joints stay at zero. This is a validation start pose, not a URDF offset.
+initial_joint_positions:
+  right:
+    right_thumb_CMC_AA: -0.17453292519943295 # -10 degrees
+  left:
+    left_thumb_CMC_AA: -0.17453292519943295 # -10 degrees
+hold_steps: 1250 # 5 seconds at the configured timestep
+# Only the concave palm collision mesh is decomposed. Visuals/inertials stay intact.
+palm_decomposition:
+  directory: assets/hand/sharpa_wave/collision
+  parameters:
+    maxConvexHulls: 64
+    resolution: 2000000
+    minimumVolumePercentErrorAllowed: 0.05
+    maxNumVerticesPerCH: 128
+    asyncACD: false
+    findBestPlane: true
+# Empty by design: blanket palm/thumb exclusion would hide real flexion contacts.
+self_collision_exclusions: []
+phase1_acceptance:
+  peak_tracking_error_rad: 0.05
+  settled_tracking_error_rad: 0.001
+  joint_limit_violation_rad: 0.005
+  contact_penetration_m: 0.001
+  contact_tail_fraction: 0.95
+  contact_final_speed_m_s: 0.001
+  release_speed_m_s: 0.05

@@ -1,0 +1,3 @@
+# Extra packages for reproducible palm decomposition and triangle-mesh diagnostics.
+vhacdx==0.1.0
+manifold3d==3.5.3

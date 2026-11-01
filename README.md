@@ -153,3 +153,9 @@ physical-robot success.
 A project-wide license has not yet been selected; this repository makes no OSI-license
 claim. See [release metadata](manifest.json), the [HUGS usage terms](https://github.com/hugs-dex/HUGS-Main#acknowledgements-and-usage-terms),
 and the [HUGS citation](https://github.com/hugs-dex/HUGS-Main#citation).
+
+## Sharpa Wave integration
+
+See [Sharpa integration and validation](docs/sharpa_integration.md). The sibling
+`HUGS-Sharpa-Assets` repository is required. For the retained BODex 50-sphere
+configuration and cross-project scope, see `HUGS-BODex/docs/sharpa_project_state.md`.

@@ -1,0 +1,417 @@
+{
+  "scope": "Right hand, one DGN_2k bottle scene, 20 fixed-seed surface-initialized candidates",
+  "attempted": 20,
+  "optimizer_completed": 20,
+  "optimizer_success": 0,
+  "converted": 20,
+  "evaluated": 20,
+  "physical_grasp_success": 1,
+  "valid_pregrasp_and_grasp": 20,
+  "all_three_stages_within_limits": 2,
+  "pipeline_acceptance_passed": true,
+  "full_grasp_evaluation_ready": false,
+  "large_scale_generation_ready": false,
+  "evaluator_semantics": "Unchanged Shadow right_full tabletop evaluator; no thresholds relaxed.",
+  "evaluation_replays": 1,
+  "simulation_warning_count": 0,
+  "dynamic_contact_cases": 15,
+  "configuration_sha256": {
+    "HUGS-BODex/src/curobo/content/configs/manip/sim_sharpa.yml": "34138e392a265b48828562b15e88270906fe61fff3ca1d8183b142d4bc245929",
+    "HUGS-BODex/src/curobo/content/configs/robot/left_sharpa_wave_kinematics.yml": "cbc0affe7007e931a7d62c3d760ba2dd47594388fe47796fceabfa596344acaf",
+    "HUGS-BODex/src/curobo/content/configs/robot/right_sharpa_wave_kinematics.yml": "97a382e04d4119a2afd64a78e549cf5fcfa3e3469532864d82ce3fa411eaa4d1",
+    "HUGS-BODex/src/curobo/content/configs/robot/right_sharpa_wave_sim.yml": "339438dac70199f182dac8c8f540f7bb4382a0bec149da0426b7e35ba40c1299",
+    "HUGS-BODex/src/curobo/content/configs/robot/hand_pose_human_transfer/right_sharpa_wave.yml": "a77efccf33ef028482b627628cdf9b5563f69598dc9139288c7774695858390a",
+    "HUGS-BODex/src/curobo/content/configs/robot/hand_pose_transfer/right_sharpa_wave.yml": "60319542fe8348be5f655a55e366a5767990ce3031dfca4b0db447cc4a7953d7",
+    "HUGS-BODex/src/curobo/content/configs/robot/spheres/right_sharpa_wave.yml": "8219ba01bd683d1d10f9fa62d2e0df8edde4ca04961d7dfa8092a5f8fd40d6b4",
+    "HUGS-BODex/src/curobo/content/configs/manip/sim_sharpa/tabletop_full.yml": "00d3dd7e1090e10177c451ff91e35c7d0b48f216f637f363eef258fabb9ecccd",
+    "HUGS-DexGraspBench/config/task/eval.yaml": "7c750b418d4c825845027660fb81b83702db79167285d161cbd7ad1d70e78631",
+    "HUGS-DexGraspBench/config/hand/sharpa_right.yaml": "04df321175109e7dc1f291e1860e4164c142a1dfb45156fd5960fcfb955070e8",
+    "HUGS-DexGraspBench/assets/hand/sharpa_wave/right.xml": "a02abeb6ca76d692c85a65601e84c58a67b9578d38300463983bfcb0580590cc"
+  },
+  "candidates": [
+    {
+      "candidate": 0,
+      "success": false,
+      "evaluator_lift_error_m": 0.10003983432802303,
+      "evaluator_angle_error_deg": 0.911933281796071,
+      "actual_object_translation_m": 7.523962250728407e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_index_MCP_VL",
+        "right_middle_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.00043446073448763,
+      "dynamic_self_penetration_m": 0.0001638815561284062,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 1,
+      "success": false,
+      "evaluator_lift_error_m": 0.10250760266196715,
+      "evaluator_angle_error_deg": 8.221373697191112,
+      "actual_object_translation_m": 0.02684548248595914,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.00816665010907994,
+      "static_contact_num": 1,
+      "static_nearest_self_pair": [
+        "right_middle_PP",
+        "right_ring_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.0012341078226265415,
+      "dynamic_self_penetration_m": 0.00016552902295116433,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 2,
+      "success": false,
+      "evaluator_lift_error_m": 0.10003452776520204,
+      "evaluator_angle_error_deg": 0.05303377151453744,
+      "actual_object_translation_m": 7.584010210661066e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_index_PP",
+        "right_middle_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.00027198101790842444,
+      "dynamic_self_penetration_m": 0.00010540098041643413,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 3,
+      "success": false,
+      "evaluator_lift_error_m": 0.10443469600978904,
+      "evaluator_angle_error_deg": 12.825253420880722,
+      "actual_object_translation_m": 0.029973725862315764,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_index_PP",
+        "right_pinky_DP"
+      ],
+      "dynamic_ho_penetration_m": 0.0030793733093361607,
+      "dynamic_self_penetration_m": 0.0012076991688622666,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 4,
+      "success": false,
+      "evaluator_lift_error_m": 0.10003567411133919,
+      "evaluator_angle_error_deg": 0.04138235805850392,
+      "actual_object_translation_m": 6.337823585191066e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_index_DP",
+        "right_middle_DP"
+      ],
+      "dynamic_ho_penetration_m": 0.0004964104356400526,
+      "dynamic_self_penetration_m": 0.00010599598841819362,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 5,
+      "success": true,
+      "evaluator_lift_error_m": 0.006654072988352274,
+      "evaluator_angle_error_deg": 5.881003195807025,
+      "actual_object_translation_m": 0.09380384907726806,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 2,
+      "static_nearest_self_pair": [
+        "right_thumb_elastomer",
+        "right_index_MP"
+      ],
+      "dynamic_ho_penetration_m": 0.0007987861141389408,
+      "dynamic_self_penetration_m": 0.0,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 6,
+      "success": false,
+      "evaluator_lift_error_m": 0.1000376109874383,
+      "evaluator_angle_error_deg": 0.044394087318880164,
+      "actual_object_translation_m": 6.529208266665823e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 1,
+      "static_nearest_self_pair": [
+        "right_thumb_DP",
+        "right_index_elastomer"
+      ],
+      "dynamic_ho_penetration_m": 0.0,
+      "dynamic_self_penetration_m": 0.0,
+      "dynamic_hand_object_contact": false,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 7,
+      "success": false,
+      "evaluator_lift_error_m": 0.10024068415086025,
+      "evaluator_angle_error_deg": 5.01997205466026,
+      "actual_object_translation_m": 0.006117750335143843,
+      "static_ho_penetration_m": 0.0011246181822075103,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 3,
+      "static_nearest_self_pair": [
+        "right_ring_PP",
+        "right_pinky_MP"
+      ],
+      "dynamic_ho_penetration_m": 0.001243801413508726,
+      "dynamic_self_penetration_m": 0.0,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 8,
+      "success": false,
+      "evaluator_lift_error_m": 0.01739004575946664,
+      "evaluator_angle_error_deg": 25.061201335745938,
+      "actual_object_translation_m": 0.08536574937723751,
+      "static_ho_penetration_m": 0.0016294372187247146,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 6,
+      "static_nearest_self_pair": [
+        "right_thumb_MC",
+        "right_ring_MP"
+      ],
+      "dynamic_ho_penetration_m": 0.005219078814152782,
+      "dynamic_self_penetration_m": 0.0,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 9,
+      "success": false,
+      "evaluator_lift_error_m": 0.10014255378616956,
+      "evaluator_angle_error_deg": 3.514379397004549,
+      "actual_object_translation_m": 0.0046377124889884535,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 1,
+      "static_nearest_self_pair": [
+        "right_index_MP",
+        "right_ring_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.0011448474408814499,
+      "dynamic_self_penetration_m": 0.0015809520681142634,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 10,
+      "success": false,
+      "evaluator_lift_error_m": 0.10032687806206061,
+      "evaluator_angle_error_deg": 1.0262967318457572,
+      "actual_object_translation_m": 0.007685229859040021,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 3,
+      "static_nearest_self_pair": [
+        "right_index_PP",
+        "right_middle_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.0005819389898254112,
+      "dynamic_self_penetration_m": 0.0,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 11,
+      "success": false,
+      "evaluator_lift_error_m": 0.10099908193743075,
+      "evaluator_angle_error_deg": 8.304483386654372,
+      "actual_object_translation_m": 0.013891110126404961,
+      "static_ho_penetration_m": 0.0012017092097614864,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 5,
+      "static_nearest_self_pair": [
+        "right_thumb_MC",
+        "right_middle_MP"
+      ],
+      "dynamic_ho_penetration_m": 0.0008213886984891177,
+      "dynamic_self_penetration_m": 0.0001400518444032056,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 12,
+      "success": false,
+      "evaluator_lift_error_m": 0.10138168643534076,
+      "evaluator_angle_error_deg": 14.733970458104556,
+      "actual_object_translation_m": 0.018138217120464192,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 2,
+      "static_nearest_self_pair": [
+        "right_ring_PP",
+        "right_pinky_MCP_VL"
+      ],
+      "dynamic_ho_penetration_m": 0.0007557920329332821,
+      "dynamic_self_penetration_m": 0.0002811052084037153,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 13,
+      "success": false,
+      "evaluator_lift_error_m": 0.10004096650498707,
+      "evaluator_angle_error_deg": 0.7656558184569592,
+      "actual_object_translation_m": 0.00032735841527261857,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_middle_MP",
+        "right_pinky_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.0005217725434725651,
+      "dynamic_self_penetration_m": 0.0013216628779261041,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 14,
+      "success": false,
+      "evaluator_lift_error_m": 0.10004130358087937,
+      "evaluator_angle_error_deg": 0.46101998697573837,
+      "actual_object_translation_m": 0.00047439910944406603,
+      "static_ho_penetration_m": 0.0012644642171357173,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 2,
+      "static_nearest_self_pair": [
+        "right_index_PP",
+        "right_middle_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.00036782152250767954,
+      "dynamic_self_penetration_m": 9.218724770908162e-05,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 15,
+      "success": false,
+      "evaluator_lift_error_m": 0.10003761098743826,
+      "evaluator_angle_error_deg": 0.04439408725320209,
+      "actual_object_translation_m": 6.529208266645042e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_index_DP",
+        "right_middle_elastomer"
+      ],
+      "dynamic_ho_penetration_m": 0.0,
+      "dynamic_self_penetration_m": 8.987188436115522e-05,
+      "dynamic_hand_object_contact": false,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 16,
+      "success": false,
+      "evaluator_lift_error_m": 0.100044613091353,
+      "evaluator_angle_error_deg": 0.0448934578099261,
+      "actual_object_translation_m": 6.998921915878836e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_index_PP",
+        "right_middle_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.00043773583901265235,
+      "dynamic_self_penetration_m": 0.0,
+      "dynamic_hand_object_contact": true,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 17,
+      "success": false,
+      "evaluator_lift_error_m": 0.10003761098743788,
+      "evaluator_angle_error_deg": 0.044394087515914366,
+      "actual_object_translation_m": 6.529208266458458e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_index_PP",
+        "right_middle_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.0,
+      "dynamic_self_penetration_m": 0.00021024641394183592,
+      "dynamic_hand_object_contact": false,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 18,
+      "success": false,
+      "evaluator_lift_error_m": 0.10003761098743855,
+      "evaluator_angle_error_deg": 0.044394087318880164,
+      "actual_object_translation_m": 6.529208266584194e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_middle_MCP_VL",
+        "right_pinky_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.0,
+      "dynamic_self_penetration_m": 0.0036157988248533028,
+      "dynamic_hand_object_contact": false,
+      "physics_steps": 750,
+      "warnings": 0
+    },
+    {
+      "candidate": 19,
+      "success": false,
+      "evaluator_lift_error_m": 0.10003761098743835,
+      "evaluator_angle_error_deg": 0.04439408745023629,
+      "actual_object_translation_m": 6.529208266671169e-05,
+      "static_ho_penetration_m": 0.0,
+      "static_self_penetration_m": 0.0,
+      "static_contact_num": 0,
+      "static_nearest_self_pair": [
+        "right_index_MCP_VL",
+        "right_middle_PP"
+      ],
+      "dynamic_ho_penetration_m": 0.0,
+      "dynamic_self_penetration_m": 0.0,
+      "dynamic_hand_object_contact": false,
+      "physics_steps": 750,
+      "warnings": 0
+    }
+  ],
+  "max_dynamic_ho_penetration_m": 0.005219078814152782,
+  "max_dynamic_self_penetration_m": 0.0036157988248533028,
+  "max_static_self_penetration_m": 0.00816665010907994,
+  "max_actual_object_translation_m": 0.09380384907726806
+}
