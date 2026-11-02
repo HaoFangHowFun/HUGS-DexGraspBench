@@ -1,6 +1,13 @@
 # Sharpa Phase 1: collision and contact validation
 
-Update (2026-11-01): the right-hand controller now uses kp=5, actuator kv=0,
+Latest update (2026-11-01): the right-hand controller now uses kp=7.5, actuator
+kv=0 and passive joint damping=0.05. The same 600 zero-seed trajectories improved
+from 350/600 to 384/600 successes (target-valid successes 295/600 to 323/600),
+with 40 improvements and 6 regressions. Effort limits and left-hand settings
+are unchanged. See [the kp=7.5 report](sharpa_kp7p5_validation/README.md) for the
+increased saturation and self-penetration, and the full validation scope.
+
+Earlier update (2026-11-01): the right-hand controller used kp=5, actuator kv=0,
 and passive joint damping=0.05. A paired replay of 30 saved grasps improved lift
 success from 5/30 to 21/30 (all-stage-target-valid successes 4/30 to 16/30).
 Effort limits are unchanged; left-hand defaults remain kp=2, kv=0.05, damping=0.

@@ -1,0 +1,92 @@
+[
+  {
+    "category": "bowl",
+    "scene": "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f/tabletop_ur10e/scale008_pose000_0.npy",
+    "candidate": 5,
+    "targets_valid": true,
+    "old_delta_pos_m": 0.013595517087417873,
+    "new_delta_pos_m": 0.014359911144253303,
+    "old_delta_angle_deg": 9.465737766241796,
+    "new_delta_angle_deg": 15.247968058335315,
+    "new_saturation": false,
+    "new_penetration": {
+      "hand_object_mm": 5.687961931912115,
+      "self_mm": 0.565537706679672
+    }
+  },
+  {
+    "category": "bowl",
+    "scene": "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f/tabletop_ur10e/scale008_pose002_0.npy",
+    "candidate": 0,
+    "targets_valid": false,
+    "old_delta_pos_m": 0.0062888668585518,
+    "new_delta_pos_m": 0.10861561201560994,
+    "old_delta_angle_deg": 3.034632692061607,
+    "new_delta_angle_deg": 65.50182711498582,
+    "new_saturation": false,
+    "new_penetration": {
+      "hand_object_mm": 1.562442411269367,
+      "self_mm": 2.541037770676242
+    }
+  },
+  {
+    "category": "bowl",
+    "scene": "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f/tabletop_ur10e/scale008_pose002_0.npy",
+    "candidate": 5,
+    "targets_valid": false,
+    "old_delta_pos_m": 0.014265994207566066,
+    "new_delta_pos_m": 0.016658724165253005,
+    "old_delta_angle_deg": 14.257031822858622,
+    "new_delta_angle_deg": 17.76937788296808,
+    "new_saturation": false,
+    "new_penetration": {
+      "hand_object_mm": 0.929346952157668,
+      "self_mm": 0.8844456176729014
+    }
+  },
+  {
+    "category": "jar",
+    "scene": "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_jar_9b93492086316fdc61c8cbc38c089792/tabletop_ur10e/scale008_pose000_0.npy",
+    "candidate": 5,
+    "targets_valid": true,
+    "old_delta_pos_m": 0.012385072085982482,
+    "new_delta_pos_m": 0.10115745205196273,
+    "old_delta_angle_deg": 9.754736853939717,
+    "new_delta_angle_deg": 21.24663689785494,
+    "new_saturation": false,
+    "new_penetration": {
+      "hand_object_mm": 1.1614152519258674,
+      "self_mm": 0.09246978398503362
+    }
+  },
+  {
+    "category": "Teapot",
+    "scene": "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Teapot_5a471458da447600fea9cf313bd7758b/tabletop_ur10e/scale008_pose001_0.npy",
+    "candidate": 5,
+    "targets_valid": true,
+    "old_delta_pos_m": 0.009181069860145512,
+    "new_delta_pos_m": 0.10041031166086938,
+    "old_delta_angle_deg": 12.783921672842734,
+    "new_delta_angle_deg": 17.787652022677392,
+    "new_saturation": false,
+    "new_penetration": {
+      "hand_object_mm": 2.0887829959052913,
+      "self_mm": 1.3151805869560014
+    }
+  },
+  {
+    "category": "Book",
+    "scene": "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Book_a7617f767cda4fa35d11c10c7ee088e4/tabletop_ur10e/scale008_pose001_0.npy",
+    "candidate": 3,
+    "targets_valid": true,
+    "old_delta_pos_m": 0.011566358455512868,
+    "new_delta_pos_m": 0.1013394623728243,
+    "old_delta_angle_deg": 2.728016324642656,
+    "new_delta_angle_deg": 21.523894228101653,
+    "new_saturation": true,
+    "new_penetration": {
+      "hand_object_mm": 3.624672365421802,
+      "self_mm": 8.425474394648395
+    }
+  }
+]

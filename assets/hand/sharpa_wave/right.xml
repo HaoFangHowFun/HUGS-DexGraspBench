@@ -344,27 +344,27 @@
   </worldbody>
   <option timestep="0.004" integrator="implicitfast" gravity="0 0 0" />
   <actuator>
-    <position name="right_thumb_CMC_FE_position" joint="right_thumb_CMC_FE" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.1745 1.9199" forcelimited="true" forcerange="-3.3 3.3" />
-    <position name="right_thumb_CMC_AA_position" joint="right_thumb_CMC_AA" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-3.3 3.3" />
-    <position name="right_thumb_MCP_FE_position" joint="right_thumb_MCP_FE" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.5236 1.3963" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_thumb_MCP_AA_position" joint="right_thumb_MCP_AA" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_thumb_IP_position" joint="right_thumb_IP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
-    <position name="right_index_MCP_FE_position" joint="right_index_MCP_FE" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.17453293 1.5708" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_index_MCP_AA_position" joint="right_index_MCP_AA" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_index_PIP_position" joint="right_index_PIP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
-    <position name="right_index_DIP_position" joint="right_index_DIP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.3963" forcelimited="true" forcerange="-0.189369 0.189369" />
-    <position name="right_middle_MCP_FE_position" joint="right_middle_MCP_FE" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.17453293 1.5708" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_middle_MCP_AA_position" joint="right_middle_MCP_AA" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_middle_PIP_position" joint="right_middle_PIP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
-    <position name="right_middle_DIP_position" joint="right_middle_DIP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.3963" forcelimited="true" forcerange="-0.189369 0.189369" />
-    <position name="right_ring_MCP_FE_position" joint="right_ring_MCP_FE" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.17453293 1.5708" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_ring_MCP_AA_position" joint="right_ring_MCP_AA" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_ring_PIP_position" joint="right_ring_PIP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
-    <position name="right_ring_DIP_position" joint="right_ring_DIP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.3963" forcelimited="true" forcerange="-0.189369 0.189369" />
-    <position name="right_pinky_CMC_position" joint="right_pinky_CMC" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 0.2618" forcelimited="true" forcerange="-0.5285 0.5285" />
-    <position name="right_pinky_MCP_FE_position" joint="right_pinky_MCP_FE" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.17453293 1.5708" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_pinky_MCP_AA_position" joint="right_pinky_MCP_AA" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
-    <position name="right_pinky_PIP_position" joint="right_pinky_PIP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
-    <position name="right_pinky_DIP_position" joint="right_pinky_DIP" kp="5.0" kv="0.0" ctrllimited="true" ctrlrange="0 1.3963" forcelimited="true" forcerange="-0.189369 0.189369" />
+    <position name="right_thumb_CMC_FE_position" joint="right_thumb_CMC_FE" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.1745 1.9199" forcelimited="true" forcerange="-3.3 3.3" />
+    <position name="right_thumb_CMC_AA_position" joint="right_thumb_CMC_AA" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-3.3 3.3" />
+    <position name="right_thumb_MCP_FE_position" joint="right_thumb_MCP_FE" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.5236 1.3963" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_thumb_MCP_AA_position" joint="right_thumb_MCP_AA" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_thumb_IP_position" joint="right_thumb_IP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
+    <position name="right_index_MCP_FE_position" joint="right_index_MCP_FE" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.17453293 1.5708" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_index_MCP_AA_position" joint="right_index_MCP_AA" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_index_PIP_position" joint="right_index_PIP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
+    <position name="right_index_DIP_position" joint="right_index_DIP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.3963" forcelimited="true" forcerange="-0.189369 0.189369" />
+    <position name="right_middle_MCP_FE_position" joint="right_middle_MCP_FE" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.17453293 1.5708" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_middle_MCP_AA_position" joint="right_middle_MCP_AA" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_middle_PIP_position" joint="right_middle_PIP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
+    <position name="right_middle_DIP_position" joint="right_middle_DIP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.3963" forcelimited="true" forcerange="-0.189369 0.189369" />
+    <position name="right_ring_MCP_FE_position" joint="right_ring_MCP_FE" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.17453293 1.5708" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_ring_MCP_AA_position" joint="right_ring_MCP_AA" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_ring_PIP_position" joint="right_ring_PIP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
+    <position name="right_ring_DIP_position" joint="right_ring_DIP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.3963" forcelimited="true" forcerange="-0.189369 0.189369" />
+    <position name="right_pinky_CMC_position" joint="right_pinky_CMC" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 0.2618" forcelimited="true" forcerange="-0.5285 0.5285" />
+    <position name="right_pinky_MCP_FE_position" joint="right_pinky_MCP_FE" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.17453293 1.5708" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_pinky_MCP_AA_position" joint="right_pinky_MCP_AA" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="-0.3491 0.3491" forcelimited="true" forcerange="-1.864 1.864" />
+    <position name="right_pinky_PIP_position" joint="right_pinky_PIP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.7453" forcelimited="true" forcerange="-0.638 0.638" />
+    <position name="right_pinky_DIP_position" joint="right_pinky_DIP" kp="7.5" kv="0.0" ctrllimited="true" ctrlrange="0 1.3963" forcelimited="true" forcerange="-0.189369 0.189369" />
   </actuator>
 </mujoco>
