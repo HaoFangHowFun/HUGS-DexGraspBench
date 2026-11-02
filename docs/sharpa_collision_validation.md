@@ -1,5 +1,17 @@
 # Sharpa Phase 1: collision and contact validation
 
+Update (2026-11-01): the right-hand controller now uses kp=5, actuator kv=0,
+and passive joint damping=0.05. A paired replay of 30 saved grasps improved lift
+success from 5/30 to 21/30 (all-stage-target-valid successes 4/30 to 16/30).
+Effort limits are unchanged; left-hand defaults remain kp=2, kv=0.05, damping=0.
+An expanded 600-pair replay across 20 objects improved lift success from 204/600
+to 350/600 (target-valid successes 170/600 to 295/600), with 146 improvements,
+zero regressions and no MuJoCo warnings. Historical Shadow results on the same
+60 scenes are 476/600; these use independently generated grasps, not paired candidates.
+See [the controller test report](sharpa_controller_validation/README.md)
+for the saved summaries, penetration increases and limitations. The Phase 1 results below are historical
+and were measured with the earlier controller; this update did not rerun that full suite.
+
 Full results: `sharpa_validation.json`. Measured summary: `sharpa_phase1_results.md`.
 This suite validates model behavior over a defined motion/contact envelope, not
 free-object grasp retention or hardware behavior.

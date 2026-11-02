@@ -1,0 +1,149 @@
+{
+  "kind": "historical_same_scene_reference_not_candidate_paired",
+  "scene_manifest_identical": true,
+  "raw_evaluation_scene_and_candidate_counts_verified": true,
+  "evaluated": 600,
+  "lift_success": 476,
+  "categories": [
+    {
+      "category": "bottle",
+      "evaluated": 30,
+      "lift_success": 29,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/bottle/shadow/numeric.json",
+      "source_numeric_sha256": "f04edf06451e1d0b8335e9ec1515618e32e95af83174e1f5bd1200e8dda4150a"
+    },
+    {
+      "category": "mug",
+      "evaluated": 30,
+      "lift_success": 20,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/mug/shadow/numeric.json",
+      "source_numeric_sha256": "0808c0f9c7d1cf586fe8e4e468c274d301ee4667402b41fbaf8c40265488b610"
+    },
+    {
+      "category": "bowl",
+      "evaluated": 30,
+      "lift_success": 28,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/bowl/shadow/numeric.json",
+      "source_numeric_sha256": "3100856896da3a38ae6d5e9b377456d99c7ffe39249a6be460787f2298ac8f66"
+    },
+    {
+      "category": "jar",
+      "evaluated": 30,
+      "lift_success": 24,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/jar/shadow/numeric.json",
+      "source_numeric_sha256": "756b8b1f972a6355dd191090be71e7dbab0960afc9081b28a1bf32b995818653"
+    },
+    {
+      "category": "can",
+      "evaluated": 30,
+      "lift_success": 27,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/can/shadow/numeric.json",
+      "source_numeric_sha256": "3168fe87bf827c299686e04b809ff2bc549764927f1b240d8b5f37ccce124d8a"
+    },
+    {
+      "category": "CerealBox",
+      "evaluated": 30,
+      "lift_success": 25,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/cerealbox/shadow/numeric.json",
+      "source_numeric_sha256": "54091e75532a74db9484a743b4127ca09bf87f36044c5b484366d2dfbc329a46"
+    },
+    {
+      "category": "camera",
+      "evaluated": 30,
+      "lift_success": 26,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/camera/shadow/numeric.json",
+      "source_numeric_sha256": "88be8ca131491468b3ebad20d858804bef8dbb8b3243d79ea248708dfefb7add"
+    },
+    {
+      "category": "Vase",
+      "evaluated": 30,
+      "lift_success": 28,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/vase/shadow/numeric.json",
+      "source_numeric_sha256": "2c46b5272201a6468f965ce49431d7459c5a5bcce3bc5c1e639945e84875ec8c"
+    },
+    {
+      "category": "cellphone",
+      "evaluated": 30,
+      "lift_success": 26,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/cellphone/shadow/numeric.json",
+      "source_numeric_sha256": "cad3c97df627f1a80f2183e1cda0e2ab246c19b86fb0cc053a1cc80ae1b56a67"
+    },
+    {
+      "category": "remote",
+      "evaluated": 30,
+      "lift_success": 17,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/remote/shadow/numeric.json",
+      "source_numeric_sha256": "bfaf9af0a7a38f0a7bb97a8823a5f2d2705ef17f7293e1f3d892b7537bfe2ef5"
+    },
+    {
+      "category": "ComputerMouse",
+      "evaluated": 30,
+      "lift_success": 24,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/computermouse/shadow/numeric.json",
+      "source_numeric_sha256": "1b0ad27a81659efa9390788a396d65df92b6e42ef7a9901c2d9d07f1f16c8bbd"
+    },
+    {
+      "category": "Teapot",
+      "evaluated": 30,
+      "lift_success": 29,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/teapot/shadow/numeric.json",
+      "source_numeric_sha256": "16cef556109bded6d684dbfa03f7551948a7bb257cb9c1db7298ccb5601343c7"
+    },
+    {
+      "category": "Flashlight",
+      "evaluated": 30,
+      "lift_success": 29,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/flashlight/shadow/numeric.json",
+      "source_numeric_sha256": "a0920de11eb2a34403780b4fb4d2925232c2322c5fd34fd5cfec5b87a85cbb67"
+    },
+    {
+      "category": "TapeDispenser",
+      "evaluated": 30,
+      "lift_success": 22,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/tapedispenser/shadow/numeric.json",
+      "source_numeric_sha256": "77e561cec99383612f05d8ac5a1ed502951d730cdc354e553ce8cdf853bbaec8"
+    },
+    {
+      "category": "ToiletPaper",
+      "evaluated": 30,
+      "lift_success": 20,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/toiletpaper/shadow/numeric.json",
+      "source_numeric_sha256": "8721d10860254903f8d38ccf540f0654726c07530837b5a0b5d624e710c5b01c"
+    },
+    {
+      "category": "TissueBox",
+      "evaluated": 30,
+      "lift_success": 17,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/tissuebox/shadow/numeric.json",
+      "source_numeric_sha256": "657d791099d2af5a93c8847021b7ecf600ea440763d5d91f1680ec7a42715a9e"
+    },
+    {
+      "category": "Book",
+      "evaluated": 30,
+      "lift_success": 21,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/book/shadow/numeric.json",
+      "source_numeric_sha256": "abd984572edf77901ebdd8cfa01144629bc50fc699b43bb854d8bfac31b6e8c6"
+    },
+    {
+      "category": "ToyFigure",
+      "evaluated": 30,
+      "lift_success": 21,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/toyfigure/shadow/numeric.json",
+      "source_numeric_sha256": "23e58a2a1e195af71e1d2144ac945ece61131595dc4af6f7a5b609aea4848f64"
+    },
+    {
+      "category": "PillBottle",
+      "evaluated": 30,
+      "lift_success": 26,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/pillbottle/shadow/numeric.json",
+      "source_numeric_sha256": "8c5002a5d736c2b1008c5f790dc9fa1d5c4d27c0a7484b6fbcd5d22ecfe54c4d"
+    },
+    {
+      "category": "TableClock",
+      "evaluated": 30,
+      "lift_success": 17,
+      "source_numeric": "benchmarks/sharpa_shadow_20_object_plan/results/tableclock/shadow/numeric.json",
+      "source_numeric_sha256": "2a6492fd7f09c82f38a242b507da9c6c00466cca483e3779b9aa6a452c909adf"
+    }
+  ]
+}

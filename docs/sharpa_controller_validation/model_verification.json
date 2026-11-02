@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "kp": 2.0,
+    "kv": 0.05,
+    "joint_damping": 0.0,
+    "actuators": 22,
+    "joints": 22,
+    "force_limits_preserved": true,
+    "geometry_inertia_limits_preserved": true,
+    "xml_sha256": "0adf6895a504e9d997e01d50fa7544267a172873587e466df602d02db4d82ac8"
+  },
+  "kp5_damping005": {
+    "kp": 5.0,
+    "kv": 0.0,
+    "joint_damping": 0.05,
+    "actuators": 22,
+    "joints": 22,
+    "force_limits_preserved": true,
+    "geometry_inertia_limits_preserved": true,
+    "xml_sha256": "f017b47f17031db4c33e370db6cda6ea3c2c58b77a9a4bb8f27a155edf1c806e"
+  }
+}

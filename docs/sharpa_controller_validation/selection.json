@@ -1,0 +1,415 @@
+{
+  "dataset": "DGN_2k",
+  "split": "test",
+  "selection": "Twenty distinct object categories, one object each. At scale 0.081 retain scenes with height 0.025\u20130.16 m; choose object median nearest 0.08 m, tie by object name; take first three eligible scene paths.",
+  "objects": [
+    {
+      "category": "bottle",
+      "object_name": "core_bottle_1a7ba1f4c892e2da30711cdbdbc73924",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08408079728391071,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bottle_1a7ba1f4c892e2da30711cdbdbc73924/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bottle_1a7ba1f4c892e2da30711cdbdbc73924/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bottle_1a7ba1f4c892e2da30711cdbdbc73924/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.08393009575181676,
+        0.11221348297560713,
+        0.11224151797899246
+      ],
+      "manifest": "manifests/bottle.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_bottle_1a7ba1f4c892e2da30711cdbdbc73924/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_bottle_1a7ba1f4c892e2da30711cdbdbc73924/urdf/coacd.xml"
+    },
+    {
+      "category": "mug",
+      "object_name": "core_mug_8aed972ea2b4a9019c3814eae0b8d399",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.07955966792007346,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_mug_8aed972ea2b4a9019c3814eae0b8d399/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_mug_8aed972ea2b4a9019c3814eae0b8d399/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_mug_8aed972ea2b4a9019c3814eae0b8d399/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.07954712550218543,
+        0.07957632014006394,
+        0.07953806433138491
+      ],
+      "manifest": "manifests/mug.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_mug_8aed972ea2b4a9019c3814eae0b8d399/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_mug_8aed972ea2b4a9019c3814eae0b8d399/urdf/coacd.xml"
+    },
+    {
+      "category": "bowl",
+      "object_name": "core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08426902784930422,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.0698753183098342,
+        0.06987653694579893,
+        0.09876310456464757
+      ],
+      "manifest": "manifests/bowl.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_bowl_53f5240e1e82c96e2d20e9f11baa5f8f/urdf/coacd.xml"
+    },
+    {
+      "category": "jar",
+      "object_name": "core_jar_9b93492086316fdc61c8cbc38c089792",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08109741601160883,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_jar_9b93492086316fdc61c8cbc38c089792/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_jar_9b93492086316fdc61c8cbc38c089792/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_jar_9b93492086316fdc61c8cbc38c089792/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.11557415064809774,
+        0.08109741601160883,
+        0.08095490005849793
+      ],
+      "manifest": "manifests/jar.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_jar_9b93492086316fdc61c8cbc38c089792/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_jar_9b93492086316fdc61c8cbc38c089792/urdf/coacd.xml"
+    },
+    {
+      "category": "can",
+      "object_name": "core_can_ace554442d7d530830612f5c0ef21eb8",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.07928463564630958,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_can_ace554442d7d530830612f5c0ef21eb8/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_can_ace554442d7d530830612f5c0ef21eb8/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_can_ace554442d7d530830612f5c0ef21eb8/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.07924398679444936,
+        0.11963746051510918,
+        0.07928463564630958
+      ],
+      "manifest": "manifests/can.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_can_ace554442d7d530830612f5c0ef21eb8/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_can_ace554442d7d530830612f5c0ef21eb8/urdf/coacd.xml"
+    },
+    {
+      "category": "CerealBox",
+      "object_name": "sem_CerealBox_12a565f8aecaafcbce41b639931f9ca1",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08438574561535178,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_CerealBox_12a565f8aecaafcbce41b639931f9ca1/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_CerealBox_12a565f8aecaafcbce41b639931f9ca1/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_CerealBox_12a565f8aecaafcbce41b639931f9ca1/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.08465968372091334,
+        0.1279531392179291,
+        0.05814169900731733
+      ],
+      "manifest": "manifests/cerealbox.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_CerealBox_12a565f8aecaafcbce41b639931f9ca1/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_CerealBox_12a565f8aecaafcbce41b639931f9ca1/urdf/coacd.xml"
+    },
+    {
+      "category": "camera",
+      "object_name": "sem_Camera_54a51457d6dd2e1a3f7e27638e63d848",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08007391102412235,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Camera_54a51457d6dd2e1a3f7e27638e63d848/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Camera_54a51457d6dd2e1a3f7e27638e63d848/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Camera_54a51457d6dd2e1a3f7e27638e63d848/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.0801370762589568,
+        0.12545911197223653,
+        0.06997114966791396
+      ],
+      "manifest": "manifests/camera.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Camera_54a51457d6dd2e1a3f7e27638e63d848/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Camera_54a51457d6dd2e1a3f7e27638e63d848/urdf/coacd.xml"
+    },
+    {
+      "category": "Vase",
+      "object_name": "sem_Vase_d6b6a7a860cfeeda2f2318fdd66be40a",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08062270016176742,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Vase_d6b6a7a860cfeeda2f2318fdd66be40a/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Vase_d6b6a7a860cfeeda2f2318fdd66be40a/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Vase_d6b6a7a860cfeeda2f2318fdd66be40a/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.08082910704449184,
+        0.08062270016176742,
+        0.1196600500783121
+      ],
+      "manifest": "manifests/vase.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Vase_d6b6a7a860cfeeda2f2318fdd66be40a/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Vase_d6b6a7a860cfeeda2f2318fdd66be40a/urdf/coacd.xml"
+    },
+    {
+      "category": "cellphone",
+      "object_name": "core_cellphone_610a9f79a2f2faacc43c9f60fcc79b4c",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.0780187471579731,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_cellphone_610a9f79a2f2faacc43c9f60fcc79b4c/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_cellphone_610a9f79a2f2faacc43c9f60fcc79b4c/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_cellphone_610a9f79a2f2faacc43c9f60fcc79b4c/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.07803428894324291,
+        0.027513561992622376,
+        0.027676439569597446
+      ],
+      "manifest": "manifests/cellphone.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_cellphone_610a9f79a2f2faacc43c9f60fcc79b4c/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_cellphone_610a9f79a2f2faacc43c9f60fcc79b4c/urdf/coacd.xml"
+    },
+    {
+      "category": "remote",
+      "object_name": "core_remote_f3366e751820f0f77e1c85c5c15da7fb",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.038560365261163354,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_remote_f3366e751820f0f77e1c85c5c15da7fb/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_remote_f3366e751820f0f77e1c85c5c15da7fb/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/core_remote_f3366e751820f0f77e1c85c5c15da7fb/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.038560365261163354,
+        0.14475414384731214,
+        0.03788284824541021
+      ],
+      "manifest": "manifests/remote.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_remote_f3366e751820f0f77e1c85c5c15da7fb/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/core_remote_f3366e751820f0f77e1c85c5c15da7fb/urdf/coacd.xml"
+    },
+    {
+      "category": "ComputerMouse",
+      "object_name": "sem_ComputerMouse_787bf704109ef23b89c1825c188af072",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.03979810918602228,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ComputerMouse_787bf704109ef23b89c1825c188af072/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ComputerMouse_787bf704109ef23b89c1825c188af072/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ComputerMouse_787bf704109ef23b89c1825c188af072/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.03551883340261813,
+        0.03979810918602228,
+        0.04121011120803888
+      ],
+      "manifest": "manifests/computermouse.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_ComputerMouse_787bf704109ef23b89c1825c188af072/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_ComputerMouse_787bf704109ef23b89c1825c188af072/urdf/coacd.xml"
+    },
+    {
+      "category": "Teapot",
+      "object_name": "sem_Teapot_5a471458da447600fea9cf313bd7758b",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.07087941595188536,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Teapot_5a471458da447600fea9cf313bd7758b/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Teapot_5a471458da447600fea9cf313bd7758b/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Teapot_5a471458da447600fea9cf313bd7758b/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.07087941595188536,
+        0.06363899235533015,
+        0.07096136334002867
+      ],
+      "manifest": "manifests/teapot.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Teapot_5a471458da447600fea9cf313bd7758b/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Teapot_5a471458da447600fea9cf313bd7758b/urdf/coacd.xml"
+    },
+    {
+      "category": "Flashlight",
+      "object_name": "sem_Flashlight_d3afd0ef3bf3b87a2c4a81f1d7e1fb38",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.05599311886885072,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Flashlight_d3afd0ef3bf3b87a2c4a81f1d7e1fb38/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Flashlight_d3afd0ef3bf3b87a2c4a81f1d7e1fb38/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Flashlight_d3afd0ef3bf3b87a2c4a81f1d7e1fb38/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.14465808856441092,
+        0.05602342653568815,
+        0.055942368335856
+      ],
+      "manifest": "manifests/flashlight.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Flashlight_d3afd0ef3bf3b87a2c4a81f1d7e1fb38/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Flashlight_d3afd0ef3bf3b87a2c4a81f1d7e1fb38/urdf/coacd.xml"
+    },
+    {
+      "category": "TapeDispenser",
+      "object_name": "sem_TapeDispenser_844516b6fe304dafe36f6f37ca7926",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.09032745636985394,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TapeDispenser_844516b6fe304dafe36f6f37ca7926/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TapeDispenser_844516b6fe304dafe36f6f37ca7926/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TapeDispenser_844516b6fe304dafe36f6f37ca7926/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.13086761435430147,
+        0.05334596812747304,
+        0.13083373150885946
+      ],
+      "manifest": "manifests/tapedispenser.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_TapeDispenser_844516b6fe304dafe36f6f37ca7926/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_TapeDispenser_844516b6fe304dafe36f6f37ca7926/urdf/coacd.xml"
+    },
+    {
+      "category": "ToiletPaper",
+      "object_name": "sem_ToiletPaper_dbe344f40aae59e6a9944a6bf3d6e5a2",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08749084769247022,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ToiletPaper_dbe344f40aae59e6a9944a6bf3d6e5a2/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ToiletPaper_dbe344f40aae59e6a9944a6bf3d6e5a2/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ToiletPaper_dbe344f40aae59e6a9944a6bf3d6e5a2/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.08227802076357536,
+        0.10337191730590266,
+        0.08250029130997089
+      ],
+      "manifest": "manifests/toiletpaper.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_ToiletPaper_dbe344f40aae59e6a9944a6bf3d6e5a2/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_ToiletPaper_dbe344f40aae59e6a9944a6bf3d6e5a2/urdf/coacd.xml"
+    },
+    {
+      "category": "TissueBox",
+      "object_name": "sem_TissueBox_13a913b33fb29f7741f9f28bc4fa9522",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.07688129272521939,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TissueBox_13a913b33fb29f7741f9f28bc4fa9522/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TissueBox_13a913b33fb29f7741f9f28bc4fa9522/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TissueBox_13a913b33fb29f7741f9f28bc4fa9522/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.07685577983125608,
+        0.07694300264611689,
+        0.07688129272521939
+      ],
+      "manifest": "manifests/tissuebox.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_TissueBox_13a913b33fb29f7741f9f28bc4fa9522/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_TissueBox_13a913b33fb29f7741f9f28bc4fa9522/urdf/coacd.xml"
+    },
+    {
+      "category": "Book",
+      "object_name": "sem_Book_a7617f767cda4fa35d11c10c7ee088e4",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.09489217960696275,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Book_a7617f767cda4fa35d11c10c7ee088e4/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Book_a7617f767cda4fa35d11c10c7ee088e4/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_Book_a7617f767cda4fa35d11c10c7ee088e4/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.025173451434095894,
+        0.13227460743899183,
+        0.09489391108471479
+      ],
+      "manifest": "manifests/book.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Book_a7617f767cda4fa35d11c10c7ee088e4/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_Book_a7617f767cda4fa35d11c10c7ee088e4/urdf/coacd.xml"
+    },
+    {
+      "category": "ToyFigure",
+      "object_name": "sem_ToyFigure_394b6bd7d7f7738b488072a798e5d5",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08002817264209464,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ToyFigure_394b6bd7d7f7738b488072a798e5d5/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ToyFigure_394b6bd7d7f7738b488072a798e5d5/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_ToyFigure_394b6bd7d7f7738b488072a798e5d5/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.12033204889274032,
+        0.07799357370401468,
+        0.07760979598751627
+      ],
+      "manifest": "manifests/toyfigure.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_ToyFigure_394b6bd7d7f7738b488072a798e5d5/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_ToyFigure_394b6bd7d7f7738b488072a798e5d5/urdf/coacd.xml"
+    },
+    {
+      "category": "PillBottle",
+      "object_name": "sem_PillBottle_6230f6c8fb4987db4489e8d156e61135",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08355673745854636,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_PillBottle_6230f6c8fb4987db4489e8d156e61135/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_PillBottle_6230f6c8fb4987db4489e8d156e61135/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_PillBottle_6230f6c8fb4987db4489e8d156e61135/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.08395346615699048,
+        0.08397770632012565,
+        0.0833924455446802
+      ],
+      "manifest": "manifests/pillbottle.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_PillBottle_6230f6c8fb4987db4489e8d156e61135/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_PillBottle_6230f6c8fb4987db4489e8d156e61135/urdf/coacd.xml"
+    },
+    {
+      "category": "TableClock",
+      "object_name": "sem_TableClock_3ac855eb532ed682fa58e2c43125b2bb",
+      "test_split": true,
+      "scale": 0.081,
+      "median_selected_height_m": 0.08056640526894518,
+      "scene_paths": [
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TableClock_3ac855eb532ed682fa58e2c43125b2bb/tabletop_ur10e/scale008_pose000_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TableClock_3ac855eb532ed682fa58e2c43125b2bb/tabletop_ur10e/scale008_pose001_0.npy",
+        "/home/hao-fang/hugs-dataset/object/DGN_2k/scene_cfg/sem_TableClock_3ac855eb532ed682fa58e2c43125b2bb/tabletop_ur10e/scale008_pose002_0.npy"
+      ],
+      "heights_m": [
+        0.04161020569021663,
+        0.08019505950955438,
+        0.13849177607490654
+      ],
+      "manifest": "manifests/tableclock.txt",
+      "mesh_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_TableClock_3ac855eb532ed682fa58e2c43125b2bb/mesh/simplified.obj",
+      "mjcf_path": "/home/hao-fang/hugs-dataset/object/DGN_2k/processed_data/sem_TableClock_3ac855eb532ed682fa58e2c43125b2bb/urdf/coacd.xml"
+    }
+  ],
+  "objects_count": 20,
+  "scenes_count": 60,
+  "grasps_per_scene_per_hand": 10,
+  "grasps_per_hand": 600,
+  "total_grasps": 1200,
+  "physical_steps_per_grasp": 750,
+  "total_physical_steps": 900000,
+  "scene_manifest_sha256": "2a7ab4893536975779495fc3a2569661de899cdaf47eaf15f65547dbe2ed93ed"
+}

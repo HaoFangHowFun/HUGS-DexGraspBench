@@ -2,6 +2,14 @@
 asset_root: ../HUGS-Sharpa-Assets
 position_kp: 2.0
 position_kv: 0.05
+joint_damping: 0.0
+# Right-hand paired grasp replay: kp=5, kv=0, passive damping=0.05.
+# Left-hand defaults remain above until evaluated separately.
+controller_overrides:
+  right:
+    position_kp: 5.0
+    position_kv: 0.0
+    joint_damping: 0.05
 timestep: 0.004
 # Strengthen the soft joint-limit constraint to match the 4 ms simulation step.
 # Joint ranges and URDF zero remain unchanged; time constant is 2 * timestep.

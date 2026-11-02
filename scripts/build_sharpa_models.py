@@ -1,5 +1,6 @@
 """Build bench-local MJCF controllers from the independent Sharpa URDF assets."""
 import copy
+import argparse
 import hashlib
 import json
 import os
@@ -13,10 +14,16 @@ REPO = Path(__file__).resolve().parents[1]
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--side', choices=('right', 'left', 'both'), default='both')
+    args = parser.parse_args()
     config = yaml.safe_load((REPO / "config/sharpa_validation.yaml").read_text())
     assets = (REPO / config["asset_root"]).resolve()
     provenance = json.loads((assets / "provenance.json").read_text())
-    for side in ("right", "left"):
+    for side in (("right", "left") if args.side == 'both' else (args.side,)):
+        controller = {key: config[key] for key in ("position_kp", "position_kv")}
+        controller["joint_damping"] = config.get("joint_damping", 0.0)
+        controller.update(config.get("controller_overrides", {}).get(side, {}))
         urdf = assets / "urdf" / f"{side}_sharpa_wave_with_flange.urdf"
         spec = mujoco.MjSpec.from_file(str(urdf))
         compiled = spec.compile()
@@ -35,6 +42,7 @@ def main():
             joint.set("solreflimit", vector(config["joint_limit_solref"]))
             joint.set("solimplimit", vector(config["joint_limit_solimp"]))
             joint.set("armature", str(config["joint_armature"]))
+            joint.set("damping", str(controller["joint_damping"]))
         output = REPO / "assets/hand/sharpa_wave" / f"{side}.xml"
         output.parent.mkdir(parents=True, exist_ok=True)
         root.insert(0, ET.Comment(
@@ -72,7 +80,7 @@ def main():
             limit = joint.find("limit")
             effort = float(limit.get("effort"))
             ET.SubElement(actuator, "position", name=f"{joint.get('name')}_position", joint=joint.get("name"),
-                          kp=str(config["position_kp"]), kv=str(config["position_kv"]),
+                          kp=str(controller["position_kp"]), kv=str(controller["position_kv"]),
                           ctrllimited="true", ctrlrange=f"{limit.get('lower')} {limit.get('upper')}",
                           forcelimited="true", forcerange=f"{-effort} {effort}")
         ET.indent(root)

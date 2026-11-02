@@ -1,0 +1,8 @@
+{
+  "HUGS-BODex/src/curobo/content/configs/manip/sim_sharpa/tabletop_full_50_restored.yml": "cb6f25e3a6c972e5f301464f7455fcfe0c02c94a563a1c70810d62df9e702799",
+  "HUGS-BODex/src/curobo/content/configs/robot/right_sharpa_wave_50_restored.yml": "6367e46b9cca12cc47a18a90b678852c9eabf5f343078af5d4fd3ed659fff9b7",
+  "HUGS-BODex/src/curobo/content/configs/robot/spheres/right_sharpa_wave_50_restored.yml": "e281200e204a73c4552b5efa3c58f110997f1058a45bf5fe7e7260851318e054",
+  "HUGS-BODex/src/curobo/content/configs/robot/hand_pose_transfer/right_sharpa_wave_s34.yml": "850d54acd707e7723d41c757c091f3b12c0087cc66069b62d72e51108f574d39",
+  "HUGS-DexGraspBench/assets/hand/sharpa_wave/right.xml": "7b8e66f8d1278f83d1c5816300935b6e08564eb49fcec1d9d7820d77f13de0d9",
+  "HUGS-DexGraspBench/src/util/hand_util.py": "e847929ea1fae37d8e081f8ae552cb5f87fa9c58d91002ee1fcd45fe828116ee"
+}
