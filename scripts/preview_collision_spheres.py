@@ -25,14 +25,15 @@ sys.path.insert(0, str(WORKSPACE / 'HUGS-Sharpa-Assets/scripts'))
 from validate_models import transform, urdf_fk
 
 
-def load_hand(label, robot_name, suite, offset, yaw):
+def load_hand(label, robot_name, suite, offset, yaw, manip_file=None, sphere_override=None):
     kin = yaml.safe_load((CONFIGS / f'robot/{robot_name}').read_text())['robot_cfg']['kinematics']
     urdf = (ASSETS / kin['urdf_path']).resolve()
     tree = ET.parse(urdf).getroot()
-    sphere_path = CONFIGS / 'robot' / kin['collision_spheres']
+    sphere_path = Path(sphere_override) if sphere_override else CONFIGS / 'robot' / kin['collision_spheres']
     sphere_data = yaml.safe_load(sphere_path.read_text())['collision_spheres']
     sphere_data = {name: sphere_data[name] for name in kin['collision_link_names']}
-    manip = yaml.safe_load((CONFIGS / f'manip/{suite}/tabletop_full.yml').read_text())
+    manip_path = CONFIGS / 'manip' / (manip_file or f'{suite}/tabletop_full.yml')
+    manip = yaml.safe_load(manip_path.read_text())
     contact_names = manip['grasp_contact_strategy']['contact_points_name']
     contacts = set()
     for entry in contact_names:
@@ -95,7 +96,26 @@ def load_hand(label, robot_name, suite, offset, yaw):
     layout = np.eye(4)
     layout[:3, :3] = Rotation.from_euler('z', yaw, degrees=True).as_matrix()
     layout[:3, 3] = offset
-    poses = {key: urdf_fk(tree, values) for key, values in [('Joint zero', zero), ('BODex initial', initial)]}
+    pose_joints = {'Joint zero': zero, 'BODex initial': initial}
+    for title, mcp, pip, dip, spread in [('Mild flex', .35, .55, .4, 0.),
+                                         ('Curled', .8, 1.2, .9, 0.),
+                                         ('Spread + flex', .35, .55, .4, .2)]:
+        values = dict(zero)
+        for finger, short, direction in zip(['index', 'middle', 'ring', 'pinky'],
+                                             ['FF', 'MF', 'RF', 'LF'], [-1., 0., .5, 1.]):
+            if label == 'Sharpa':
+                values.update({f'right_{finger}_MCP_FE': mcp, f'right_{finger}_MCP_AA': spread*direction,
+                               f'right_{finger}_PIP': pip, f'right_{finger}_DIP': dip})
+            else:
+                values.update({f'rh_{short}J3': mcp, f'rh_{short}J4': spread*direction,
+                               f'rh_{short}J2': pip, f'rh_{short}J1': pip})
+        for joint in tree.findall('joint'):
+            limit = joint.find('limit')
+            if joint.get('name') in values and limit is not None:
+                values[joint.get('name')] = float(np.clip(values[joint.get('name')],
+                                                         float(limit.get('lower')), float(limit.get('upper'))))
+        pose_joints[title] = values
+    poses = {key: urdf_fk(tree, values) for key, values in pose_joints.items()}
     for fk in poses.values():
         for group in meshes.values():
             for name, mesh in group.items():
@@ -103,9 +123,11 @@ def load_hand(label, robot_name, suite, offset, yaw):
                 assert np.max(mesh.extents) < 1., f'Unexpected units: {label}/{name}'
     print(f'{label}: {count} actual spheres; {len(sphere_data)} collision links; {sphere_path}', flush=True)
     print(f'{label}: {len(contacts)} designated contact spheres: {contact_names}', flush=True)
+    print(f'{label}: manipulator configuration: {manip_path}', flush=True)
     return dict(label=label, count=count, contact_count=len(contacts), contact_names=contact_names,
                 meshes=meshes, poses=poses, layout=layout, spheres=sphere_data,
-                original_spheres=copy.deepcopy(sphere_data), contacts=contacts, sphere_path=sphere_path)
+                original_spheres=copy.deepcopy(sphere_data), contacts=contacts, sphere_path=sphere_path,
+                tree=tree, pose_joints=pose_joints, joint_order=names)
 
 
 def sphere_group_mesh(hand, link, contact):
@@ -125,25 +147,95 @@ def main():
     parser.add_argument('--port', type=int, default=8083)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--duration', type=float, default=0.)
-    parser.add_argument('--sharpa-spheres', choices=['34', '50-volume', '50-seed'], default='34',
-                        help='Official 34 spheres, experimental volume fit, or its Shadow-derived seed.')
+    parser.add_argument('--sharpa-spheres', choices=['active', '34', '50-volume', '50-seed'], default='active',
+                        help='Current retained Sharpa configuration, or an explicitly selected historical preset.')
+    parser.add_argument('--sharpa-draft', type=Path,
+                        help='Preview a separate sphere YAML with an original/draft comparison switch.')
+    parser.add_argument('--sharpa-draft-label', default='Mesh-fit draft')
+    parser.add_argument('--sharpa-reference-draft', type=Path,
+                        help='Optional earlier draft for a third comparison option.')
+    parser.add_argument('--sharpa-reference-label', default='Previous radius-only fit')
+    parser.add_argument('--sharpa-pose-draft', type=Path,
+                        help='Named-joint initial-pose draft; compare against Shadow retained initial pose.')
+    parser.add_argument('--sharpa-reference-pose', type=Path,
+                        help='Optional previous pose for comparison against Shadow.')
     args = parser.parse_args()
     # Align finger +Z and thumb +Y for comparison; preserve actual metric scale.
-    sharpa_robot = {'34': 'right_sharpa_wave_sim.yml',
+    active_manip = 'sim_sharpa/tabletop_full_50_restored.yml'
+    sharpa_robot = {'active': yaml.safe_load((CONFIGS / 'manip' / active_manip).read_text())['robot_file'],
+                    '34': 'right_sharpa_wave_sim.yml',
                     '50-volume': 'right_sharpa_wave_50_volume_preview.yml',
                     '50-seed': 'right_sharpa_wave_50_shadow_seed_preview.yml'}[args.sharpa_spheres]
     hands = [load_hand('Shadow', 'right_shadow_hand_sim.yml', 'sim_shadow', [0., -.17, 0.], 90.),
-             load_hand('Sharpa', sharpa_robot, 'sim_sharpa', [0., .17, 0.], 0.)]
+             load_hand('Sharpa', sharpa_robot, 'sim_sharpa', [0., .17, 0.], 0.,
+                       manip_file=active_manip if args.sharpa_spheres == 'active' else None,
+                       sphere_override=args.sharpa_draft)]
+    initial_pose = 'BODex initial' if args.sharpa_spheres == 'active' else 'Joint zero'
+
+    def add_pose_draft(path, title):
+        draft_pose = yaml.safe_load(path.read_text())
+        assert draft_pose['units'] == 'radians'
+        values = draft_pose['joint_angles']
+        assert set(values) == set(hands[1]['joint_order'])
+        assert all(np.isfinite(float(value)) for value in values.values())
+        for joint in hands[1]['tree'].findall('joint'):
+            if joint.get('name') not in values:
+                continue
+            limit = joint.find('limit')
+            assert limit is not None
+            assert float(limit.get('lower')) <= values[joint.get('name')] <= float(limit.get('upper'))
+        hands[1]['poses'][title] = urdf_fk(hands[1]['tree'], values)
+        hands[1]['pose_joints'][title] = dict(values)
+        hands[0]['poses'][title] = hands[0]['poses']['BODex initial']
+        hands[0]['pose_joints'][title] = dict(hands[0]['pose_joints']['BODex initial'])
+        print(f'Sharpa pose {title}: {path}; Shadow uses retained BODex initial.', flush=True)
+
+    if args.sharpa_pose_draft:
+        initial_pose = 'Draft initial vs Shadow'
+        add_pose_draft(args.sharpa_pose_draft, initial_pose)
+        if args.sharpa_reference_pose:
+            add_pose_draft(args.sharpa_reference_pose, 'Previous thumb vs Shadow')
+    variants = None
+    if args.sharpa_draft:
+        kin = yaml.safe_load((CONFIGS / 'robot' / sharpa_robot).read_text())['robot_cfg']['kinematics']
+        original = yaml.safe_load((CONFIGS / 'robot' / kin['collision_spheres']).read_text())['collision_spheres']
+        original = {link: original[link] for link in kin['collision_link_names']}
+        assert all(len(original[link]) == len(balls) for link, balls in hands[1]['spheres'].items())
+        variants = {'Original': original, args.sharpa_draft_label: copy.deepcopy(hands[1]['spheres'])}
+        if args.sharpa_reference_draft:
+            reference = yaml.safe_load(args.sharpa_reference_draft.read_text())['collision_spheres']
+            assert all(len(reference[link]) == len(balls) for link, balls in original.items())
+            variants[args.sharpa_reference_label] = {link: reference[link] for link in original}
+        changed_contacts = sum(original[link][i] != hands[1]['spheres'][link][i]
+                               for link, i in hands[1]['contacts'])
+        variant_defaults = copy.deepcopy(variants)
+        current_variant = args.sharpa_draft_label
     if args.check:
-        print('Both hands and both poses loaded; no geometry or collision settings changed.')
+        print(f'Both hands and {len(hands[0]["poses"])} poses loaded; no geometry or collision settings changed.')
         return
     server = viser.ViserServer(host=args.host, port=args.port)
     server.scene.set_up_direction('+z')
     events = queue.SimpleQueue()
     try:
         with server.gui.add_folder('Collision sphere comparison'):
-            pose = server.gui.add_dropdown('Joint pose', options=['Joint zero', 'BODex initial'], initial_value='Joint zero')
-            mesh_type = server.gui.add_dropdown('Mesh', options=['Visual mesh', 'URDF collision mesh', 'Hidden'], initial_value='Visual mesh')
+            pose = server.gui.add_dropdown('Joint pose', options=list(hands[0]['poses']), initial_value=initial_pose)
+            if args.sharpa_pose_draft:
+                server.gui.add_markdown('**Draft initial vs Shadow:** Sharpa uses the loaded initial-pose draft; '
+                                        'Shadow uses its retained BODex initial pose. '
+                                        '**Joint zero** shows zero angles on both hands. '
+                                        '**BODex initial** shows both retained settings. '
+                                        'Loading a pose draft here does not change the formal settings.')
+            mesh_type = server.gui.add_dropdown('Mesh', options=['Visual mesh', 'URDF collision mesh', 'Hidden'],
+                                               initial_value='URDF collision mesh' if variants and not changed_contacts else 'Visual mesh')
+            if variants:
+                variant_select = server.gui.add_dropdown('Sharpa spheres', options=list(variants), initial_value=current_variant)
+                variant_select.on_update(lambda event: events.put(('variant', event.target.value)))
+                contact_note = (f'{changed_contacts} green contact spheres were adjusted in this draft. '
+                                if changed_contacts else 'Green contact targets are unchanged. ')
+                server.gui.add_markdown('**Preview sphere draft.** '
+                                        + contact_note + 'Switch Sharpa spheres to compare. '
+                                        'Compare fit and finger coverage using the mesh, pose and finger controls. '
+                                        'Formal grasp settings are unchanged.')
             show_balls = server.gui.add_checkbox('Show collision spheres', initial_value=True)
             contacts_only = server.gui.add_checkbox('Contact spheres only', initial_value=False)
             solid_contacts = server.gui.add_checkbox('Solid contact spheres', initial_value=True)
@@ -153,9 +245,10 @@ def main():
             server.gui.add_markdown(f'**Shadow: {hands[0]["count"]} spheres · Sharpa: {hands[1]["count"]} spheres**\n\n'
                                     f'**Green: designated contact spheres ({hands[0]["contact_count"]} / {hands[1]["contact_count"]}).** '
                                     '**Orange: other collision spheres.** '
-                                    'Colors follow contact_points_name; other spheres on the same contact link may also use contact allowances.\n\n'
+                                    'All spheres participate in collision handling; green marks the grasp-attraction targets. '
+                                    'Other spheres on contact-eligible links can have different clearance allowances.\n\n'
                                     f'Sharpa variant: **{args.sharpa_spheres}**. '
-                                    'Actual BODex sphere radii; no enlargement. Same metric scale. '
+                                    'Sphere radii are drawn at their configured size. Same metric scale. '
                                     'Display roots are separated and aligned; no simulation. '
                                     'Overlapping spheres on the same link are normal. '
                                     'Self-collision margin buffers are not drawn. '
@@ -168,9 +261,10 @@ def main():
         def get_ball(sphere_id, original=False):
             link, index = sphere_id.rsplit('/', 1)
             return editable['original_spheres' if original else 'spheres'][link][int(index)]
-        first = get_ball(sphere_ids[0])
+        first_id = ('right_index_elastomer/0' if changed_contacts else 'right_index_MCP_VL/0') if variants else sphere_ids[0]
+        first = get_ball(first_id)
         with server.gui.add_folder('Edit Sharpa sphere'):
-            sphere_select = server.gui.add_dropdown('Sphere (link/index)', options=sphere_ids, initial_value=sphere_ids[0])
+            sphere_select = server.gui.add_dropdown('Sphere (link/index)', options=sphere_ids, initial_value=first_id)
             server.gui.add_markdown('**Units: mm. X/Y/Z are local to the selected link.** '
                                     'First five entries are contact targets. Changes appear immediately; '
                                     'Save draft writes a separate YAML, leaving source settings unchanged.')
@@ -198,10 +292,22 @@ def main():
         save_draft.on_click(lambda event: events.put(('save',)))
         filters = {}
         handles = []
+        finger_prefixes = {
+            'Sharpa': dict(zip(['Thumb', 'Index finger', 'Middle finger', 'Ring finger', 'Pinky'],
+                               ['right_thumb_', 'right_index_', 'right_middle_', 'right_ring_', 'right_pinky_'])),
+            'Shadow': dict(zip(['Thumb', 'Index finger', 'Middle finger', 'Ring finger', 'Pinky'],
+                               ['rh_th', 'rh_ff', 'rh_mf', 'rh_rf', 'rh_lf']))}
+
+        def link_visible(hand, name):
+            selected = filters[hand['label']].value
+            prefix = finger_prefixes[hand['label']].get(selected)
+            return selected == 'All' or selected == name or (prefix is not None and name.startswith(prefix))
+
         for hand in hands:
             label = hand['label']
             all_names = sorted(set().union(*(set(g) for g in hand['meshes'].values())))
-            filters[label] = server.gui.add_dropdown(f'{label} link', options=['All'] + all_names, initial_value='All')
+            filters[label] = server.gui.add_dropdown(f'{label} link',
+                options=['All'] + list(finger_prefixes[label]) + all_names, initial_value='All')
             controls.append(filters[label])
             server.scene.add_label(f'/{label}/label', f'{label}: {hand["count"]} spheres',
                                    position=hand['layout'][:3, 3] + [0., 0., .29])
@@ -221,9 +327,8 @@ def main():
                 matrix = hand['layout'] @ hand['poses'][pose.value][name]
                 handle.position = matrix[:3, 3]
                 handle.wxyz = np.roll(Rotation.from_matrix(matrix[:3, :3]).as_quat(), 1)
-                selected = filters[hand['label']].value
                 is_sphere = kind in ('Spheres', 'Contact spheres')
-                handle.visible = (selected == 'All' or selected == name) and (
+                handle.visible = link_visible(hand, name) and (
                     (show_balls.value and (not contacts_only.value or kind == 'Contact spheres')) if is_sphere else mesh_type.value == kind)
                 handle.opacity = ball_opacity.value if is_sphere else mesh_opacity.value
                 if is_sphere:
@@ -235,7 +340,7 @@ def main():
             ball = get_ball(sphere_select.value)
             selection.position = (frame @ np.r_[ball['center'], 1.])[:3]
             selection.scale = float(ball['radius'])*1.03
-            selection.visible = show_balls.value and filters['Sharpa'].value in ('All', link)
+            selection.visible = show_balls.value and link_visible(editable, link)
         for control in controls:
             control.on_update(lambda event: events.put(True))
         @server.on_client_connect
@@ -251,7 +356,19 @@ def main():
                     event = events.get()
                     if event is True:
                         continue
-                    if event[0] == 'select':
+                    if event[0] == 'variant':
+                        variants[current_variant] = copy.deepcopy(editable['spheres'])
+                        current_variant = event[1]
+                        editable['spheres'] = copy.deepcopy(variants[current_variant])
+                        editable['original_spheres'] = copy.deepcopy(variant_defaults[current_variant])
+                        for hand, group, name, handle in handles:
+                            if hand is editable and group in ('Spheres', 'Contact spheres'):
+                                mesh = sphere_group_mesh(editable, name, group == 'Contact spheres')
+                                handle.vertices = mesh.vertices.astype(np.float32)
+                                handle.faces = mesh.faces.astype(np.uint32)
+                        refresh_fields()
+                        edit_status.content = f'Showing: {current_variant}. Formal settings are unchanged.'
+                    elif event[0] == 'select':
                         refresh_fields()
                     elif event[0] in ('edit', 'reset'):
                         sphere_id = event[1]
